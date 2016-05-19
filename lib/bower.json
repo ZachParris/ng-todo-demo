@@ -1,0 +1,17 @@
+{
+  "name": "demos",
+  "homepage": "https://github.com/ZachParris/ng-todo-demo",
+  "authors": [
+    "ZachParris <zacharyjparris@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
