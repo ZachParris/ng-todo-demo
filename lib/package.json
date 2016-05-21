@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/ZachParris/ng-todo-demo/issues"
   },
-  "homepage": "https://github.com/ZachParris/ng-todo-demo#readme"
+  "homepage": "https://github.com/ZachParris/ng-todo-demo#readme",
+  "dependencies": {
+    "gulp-jshint": "^2.0.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
 }
