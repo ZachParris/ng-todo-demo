@@ -12,7 +12,7 @@
 		},
 		"item1": {
 			"id": 1,
-			"task": "grade quizez",
+			"task": "grade quizes",
 			"isComplete": false,
 			"dueDate": "12/5/17",
 			"assignedTo": "joe",

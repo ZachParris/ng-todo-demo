@@ -1,44 +1,29 @@
-app.controller("itemNewCtrl", function($scope){
-	$scope.newTask = {};
-	$scope.items = [
-	{
-		id: 0,
-		task: "mow the lawn",
-		isComplete: true,
-		dueDate: "12/5/17",
-		assignedTo: "greg",
-		location: "Zoe's House",
-		urgency: "low",
-		dependencies: "sunshine, clippers, hat, water, headphones"
-	},
-	{
-		id: 1,
-		task: "grade quizez",
+app.controller("itemNewCtrl", function($scope, $http, $location){
+	$scope.newTask = {
+		assignedTo: "",
+		dependencies: "",
+		dueDate: "",
 		isComplete: false,
-		dueDate: "12/5/17",
-		assignedTo: "joe",
-		location: "NSS",
-		urgency: "high",
-		dependencies: "wifi, tissues, vodka"
-	},
-	{
-		id: 2,
-		task: "take a nap",
-		isComplete: false,
-		dueDate: "12/5/17",
-		assignedTo: "zoe",
-		location: "Zoe's House",
-		urgency: "medium",
-		dependencies: "cat, blanket, hammock"
-	}
-	];
-
-	
+		location: "",
+		task: "",
+		urgency: ""
+	};
 	$scope.addNewItem = function(){
-		$scope.newTask.isComplete= false;
-		$scope.newTask.id= $scope.items.length;
-		console.log("your new item", $scope.newTask);
-		$scope.items.push($scope.newTask);
-		$scope.newTask="";
+		$http.post(
+			"https://ng-todo-zp.firebaseio.com/items.json",
+			JSON.stringify({
+				assignedTo: $scope.newTask.assignedTo,
+				dependencies: $scope.newTask.dependencies,
+				dueDate: $scope.newTask.dueDate,
+				isComplete: $scope.newTask.isComplete,
+				location: $scope.newTask.location,
+				task: $scope.newTask.task,
+				urgency: $scope.newTask.urgency
+			})
+			)
+		.success(function(response){
+			console.log(response);
+			$location.url("/items/list")
+		})
 	};
 });

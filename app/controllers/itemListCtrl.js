@@ -1,39 +1,25 @@
-app.controller("itemListCtrl", function($scope){
-
-	$scope.newTask = {};
-
-	$scope.items = [
-	{
-		id: 0,
-		task: "mow the lawn",
-		isComplete: true,
-		dueDate: "12/5/17",
-		assignedTo: "greg",
-		location: "Zoe's House",
-		urgency: "low",
-		dependencies: "sunshine, clippers, hat, water, headphones"
-	},
-	{
-		id: 1,
-		task: "grade quizez",
-		isComplete: false,
-		dueDate: "12/5/17",
-		assignedTo: "joe",
-		location: "NSS",
-		urgency: "high",
-		dependencies: "wifi, tissues, vodka"
-	},
-	{
-		id: 2,
-		task: "take a nap",
-		isComplete: false,
-		dueDate: "12/5/17",
-		assignedTo: "zoe",
-		location: "Zoe's House",
-		urgency: "medium",
-		dependencies: "cat, blanket, hammock"
-	}
-	];
-
-
+app.controller("itemListCtrl", function($scope, $http, $location){
+	$scope.items = [];
+	var getItems = function(){
+		$http.get("https://ng-todo-zp.firebaseio.com/items.json")
+			.success(function(itemObject){
+				var itemCollection = itemObject;
+				console.log("itemObject", itemObject);
+				Object.keys(itemCollection).forEach(function(key){
+					itemCollection[key].id=key;
+					$scope.items.push(itemCollection[key]);
+				})
+			});
+		}
+		getItems();
+		$scope.itemDelete = function(itemId){
+			console.log("itemId", itemId);
+			$http
+				.delete(`https://ng-todo-zp.firebaseio.com/items/${itemId}.json`)
+				.success(function(response){
+					console.log(response);
+					$scope.items = [];
+					getItems();
+			})
+		}
 	});
