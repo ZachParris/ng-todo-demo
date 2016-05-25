@@ -1,20 +1,14 @@
-app.controller("itemViewCtrl", function($scope, $http, $routeParams){
-	$scope.items = [];
-	$scope.selectedItem = {};
-	console.log($routeParams.itemId);
+app.controller("ItemViewCtrl", function($scope, $http, $routeParams){
+    $scope.items = [];
+    $scope.selectedItem = {};
+    console.log($routeParams.itemId);
 
+    itemStorage.getItemList().then(function(itemCollection){
+        console.log("itemCollection from promise", itemCollection);
+        $scope.items = itemCollection;
 
-	$http.get("https://ng-todo-zp.firebaseio.com/items.json")
-		.success(function(itemObject){
-			var itemCollection = itemObject;
-			console.log("itemObject", itemObject);
-			Object.keys(itemCollection).forEach(function(key){
-				itemCollection[key].id=key;
-				$scope.items.push(itemCollection[key]);
-
-				$scope.selectedItem = $scope.items.filter(function(item){
-					return item.id === $routeParams.itemId;
-				})[0];
-			})
-		});
+        $scope.selectedItem = $scope.items.filter(function(item){
+			return item.id === $routeParams.itemId;
+		})[0];
+    });
 });

@@ -25,8 +25,8 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" ng-repeat="thingy in navItems">
-                    <li><a ng-href="{{thingy.url}}">{{thingy.name}}</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-repeat="thingy in navItems"><a ng-href="{{thingy.url}}">{{thingy.name}}</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
     <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -50,8 +50,8 @@
     <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/factories/itemFactory.js"></script>
     <script type="text/javascript" src="app/controllers/navCtrl.js"></script>
-    <!-- // <script type="text/javascript" src="app/controllers/TodoCtrl.js"></script> -->
     <script type="text/javascript" src="app//controllers/itemListCtrl.js"></script>
     <script type="text/javascript" src="app//controllers/itemViewCtrl.js"></script>
 	<script type="text/javascript" src="app//controllers/itemNewCtrl.js"></script>
