@@ -1,4 +1,4 @@
-app.controller("itemListCtrl", function($scope, $location, itemStorage){
+app.controller("ItemListCtrl", function($scope, $location, itemStorage){
     $scope.items = [];
 
     itemStorage.getItemList().then(function(itemCollection){
@@ -14,4 +14,18 @@ app.controller("itemListCtrl", function($scope, $location, itemStorage){
             });
         });
     };
+
+    $scope.inputChange = function(item){
+    	itemStorage.updateCompletedStatus(item)
+    		.then(function(response){
+    			console.log(response);
+    		})
+    }
+
+
+
+
+
+
+
 });

@@ -1,4 +1,4 @@
-app.controller("itemViewCtrl", function($scope, $routeParams, itemStorage){
+app.controller("ItemViewCtrl", function($scope, $routeParams, itemStorage){
     $scope.items = [];
     $scope.selectedItem = {};
     console.log($routeParams.itemId);
