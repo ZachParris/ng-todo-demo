@@ -19,8 +19,8 @@ app.controller("ItemListCtrl", function($scope, $location, itemStorage){
     	itemStorage.updateCompletedStatus(item)
     		.then(function(response){
     			console.log(response);
-    		})
-    }
+    		});
+    };
 
 
 
