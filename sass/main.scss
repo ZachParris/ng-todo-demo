@@ -1,0 +1,24 @@
+$lobster: bisque;
+$red: red;
+
+body{
+	background-color: $lobster;
+};
+
+h1 {
+	text-align: center;
+
+}
+
+.main-container {
+	border: 2px dashed $red;
+}
+
+.search-bar-spaceing {
+	margin-bottom: 20px;
+}
+
+.title-bar {
+	font-weight: bold;
+}
+
