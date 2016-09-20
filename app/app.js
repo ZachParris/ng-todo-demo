@@ -19,7 +19,7 @@ app.config(function($routeProvider){
 	  	templateUrl: "partials/item-list.html",
 	  	controller: "ItemListCtrl",
 	  	resolve: {isAuth}
-	  }).
+	  }).l
 	 when("/items/list", {
 	  	templateUrl: "partials/item-list.html",
 	  	controller: "ItemListCtrl",

@@ -26,6 +26,4 @@ app.controller("ItemListCtrl", function($scope, $location, itemStorage){
 
 
 
-
-
 });
